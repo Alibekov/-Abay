@@ -4,5 +4,5 @@
 <?php
 $news = ["sport"=>["C. Ronaldo has scored three goals in last five matches","Golovkin has won match for title"],"politics"=>["Trump has cancelled his visit to North Corea, because of sanction","N. Nazarbayev has approved new version of alphabet"]];
 $category = "sport"];
-/* Write your code here */
+
 ?>
