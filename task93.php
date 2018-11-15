@@ -18,7 +18,54 @@ $cars = [["maker"=>"Toyota","model"=>"Carina","year"=>2001,"price"=>20000,"image
 ["maker"=>"BMW","model"=>"X5","year"=>2007,"price"=>17000,"image"=>"https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/all-models/x-series/x5/2015/at-a-glance/x5_at-a-glance_stagepresentation.jpg/_jcr_content/renditions/cq5dam.resized.img.1680.large.time1452864075065.jpg"],["maker"=>"BMW","model"=>"X5","year"=>2015,"price"=>19000,"image"=>"https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/all-models/x-series/x5/2015/at-a-glance/x5_at-a-glance_stagepresentation.jpg/_jcr_content/renditions/cq5dam.resized.img.1680.large.time1452864075065.jpg"],["maker"=>"BMW","model"=>"Model 7","year"=>2014,"price"=>22000,"image"=>"https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/all-models/x-series/x5/2015/at-a-glance/x5_at-a-glance_stagepresentation.jpg/_jcr_content/renditions/cq5dam.resized.img.1680.large.time1452864075065.jpg"],
 ["maker"=>"Lada","model"=>"Granta","year"=>2017,"price"=>7000,"image"=>"http://www.kolesa.ru/uploads/2017/06/Lada-Granta-restyle-front1-1600x0-c-default.jpg"]
 ];
-/* Write your code here */
+$maker = "";
+$year = "";
+$price = "";
+if(isset($_REQUEST["maker"])){
+	$maker = $_REQUEST["maker"];
+}
+if(isset($_REQUEST["year"])){
+	$year = $_REQUEST["year"];
+}
+if(isset($_REQUEST["price"])){
+	$price = $_REQUEST["price"];
+}
+for($i = 0; $i < count($cars); $i++){
+	if($cars[$i]["maker"] == $maker){
+		echo "<div class='card'>";
+		echo "<img src=" . $cars[$i]["image"] . "width='100px' height='100px'>";
+		echo "<div class='description'>";
+		echo "<span class='title;>" . $cars[$i]["maker"] . " " . $cars[$i]["model"] . "</span>";
+		echo "<span class='price'>" . $cars[$i]["price"] . "$</span>";
+		echo "<span class='year'>" . $cars[$i]["year"] . " year</span>";
+		echo "</div>";
+		echo "</div>";
+		echo "</br></br></br>";
+	}
+	if($year == "old" & 2018 - $cars[$i]["year"] > 7){
+		echo "<div class='card'>";
+		echo "<img src=" . $cars[$i]["image"] . "width='100px' height='100px'>";
+		echo "<div class='description'>";
+		echo "<span class='title;>" . $cars[$i]["maker"] . " " . $cars[$i]["model"] . "</span>";
+		echo "<span class='price'>" . $cars[$i]["price"] . "$</span>";
+		echo "<span class='year'>" . $cars[$i]["year"] . " year</span>";
+		echo "</div>";
+		echo "</div>";
+		echo "</br></br></br>";
+	}
+	if($price == "expensive" & $cars[$i]["price"] > 20000){
+		echo "<div class='card'>";
+		echo "<img src=" . $cars[$i]["image"] . "width='100px' height='100px'>";
+		echo "<div class='description'>";
+		echo "<span class='title;>" . $cars[$i]["maker"] . " " . $cars[$i]["model"] . "</span>";
+		echo "<span class='price'>" . $cars[$i]["price"] . "$</span>";
+		echo "<span class='year'>" . $cars[$i]["year"] . " year</span>";
+		echo "</div>";
+		echo "</div>";
+		echo "</br></br></br>";
+	}
+}
+?>
 ?>
 </div>
 <div class="menu">
