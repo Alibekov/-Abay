@@ -4,5 +4,17 @@
 <?php
 $news = ["sport"=>["C. Ronaldo has scored three goals in last five matches","Golovkin has won match for title"],"politics"=>["Trump has cancelled his visit to North Corea, because of sanction","N. Nazarbayev has approved new version of alphabet"]];
 $category = "sport"];
-
+$format = "";
+if(isset($_GET["format"])){
+      $format = $_GET["format"];
+}
+if(isset($_GET["category"])){
+	    $category = $_GET["category"];
+}
+if($format == "json"){
+	    echo json_encode($news[$category]);
+}
+else{
+    	echo $news[$category][0]. "</br>". $news[$category][1];
+}
 ?>
